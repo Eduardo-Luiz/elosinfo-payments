@@ -10,10 +10,10 @@ import java.math.BigDecimal;
 import java.time.LocalDateTime;
 
 @Entity
-@Table(name = "payments")
+@Table(name = "payment")
 @Data //coloca todos os getters e setters
 @NoArgsConstructor //criar construtor default
-public class PaymentsEntity {
+public class PaymentEntity {
 
     @JsonInclude(JsonInclude.Include.NON_NULL)
     @Id
@@ -51,6 +51,7 @@ public class PaymentsEntity {
     @Column(name = "active")
     private Boolean active;
 
+    @Enumerated(EnumType.STRING)
     @Column(name = "payment_type")
     private PaymentType paymentType;
 
