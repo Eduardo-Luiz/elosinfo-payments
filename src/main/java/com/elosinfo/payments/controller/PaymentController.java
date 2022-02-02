@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequestMapping("/payin")
-public class PayinController {
+public class PayInController {
 
     @GetMapping
     public ResponseEntity<String> hello(){
