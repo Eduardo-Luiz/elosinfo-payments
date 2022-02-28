@@ -7,11 +7,6 @@ import com.fasterxml.jackson.annotation.JsonInclude;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.hibernate.validator.constraints.Length;
-import org.springframework.beans.factory.annotation.Value;
-
-import javax.persistence.Column;
-import javax.persistence.EnumType;
-import javax.persistence.Enumerated;
 import javax.validation.constraints.*;
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
@@ -24,9 +19,9 @@ public class PaymentDto {
     @NotNull
     private Long customerId;
 
-    @NotBlank(message = "Last name required")
-    @Length(min = 3, max = 20, message = "Last Name must be between 3 and 20 characters long")
-    private String description;
+    @NotBlank(message = "Identification is required")
+    @Length(min = 3, max = 20, message = "Identification must be between 3 and 20 characters long")
+    private String identification;
 
     @NotNull
     @DecimalMin(value = "0.01")
@@ -38,11 +33,8 @@ public class PaymentDto {
     @Digits(integer = 12, fraction = 2)
     private BigDecimal totalPaid;
 
-    @FutureOrPresent(message = "Start date must be a future data")
-    private LocalDateTime startDate;
-
-    @FutureOrPresent(message = "End date must be a future data")
-    private LocalDateTime endDate;
+    @FutureOrPresent(message = "Due date must be a future data")
+    private LocalDateTime dueDate;
 
     @NotNull
     @Min(value = 1, message = "Installments number must be greater than or equal to 1")
@@ -53,4 +45,8 @@ public class PaymentDto {
 
     @NotNull
     private PaymentType paymentType;
+
+    private LocalDateTime createdAt;
+
+    private Long categoryId;
 }

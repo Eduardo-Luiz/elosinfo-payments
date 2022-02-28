@@ -16,4 +16,6 @@ public interface IPaymentService {
     public void updatePayment(Long id, PaymentDto customerDto);
 
     public void deletePayment(Long id);
+
+    void categorize(Long id, Long idCategory);
 }

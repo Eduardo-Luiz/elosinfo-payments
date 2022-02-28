@@ -26,8 +26,8 @@ public class PaymentEntity {
     @Column(name = "customer_id")
     private Long customerId;
 
-    @Column(name = "description")
-    private String description;
+    @Column(name = "identification")
+    private String identification;
 
     @JsonInclude(JsonInclude.Include.NON_NULL)
     @Column(name = "total_amount")
@@ -38,12 +38,8 @@ public class PaymentEntity {
     private BigDecimal totalPaid;
 
     @JsonInclude(JsonInclude.Include.NON_NULL)
-    @Column(name = "start_date")
-    private LocalDateTime startDate;
-
-    @JsonInclude(JsonInclude.Include.NON_NULL)
-    @Column(name = "end_date")
-    private LocalDateTime endDate;
+    @Column(name = "due_date")
+    private LocalDateTime dueDate;
 
     @Column(name = "installments_number")
     private Integer installmentsNumber;
@@ -57,8 +53,11 @@ public class PaymentEntity {
 
     @JsonInclude(JsonInclude.Include.NON_NULL)
     @Column(name = "created_at")
-    private LocalDateTime createdAt = LocalDateTime.now();
+    private LocalDateTime createdAt;
 
     @Column(name = "updated_at")
-    private LocalDateTime updatedAt = LocalDateTime.now();
+    private LocalDateTime updatedAt;
+
+    @Column(name = "category_id")
+    private Long categoryId;
 }
