@@ -8,18 +8,5 @@ import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
 class PaymentsApplicationTests {
-	@Autowired
-	private PaymentController paymentController;
-	@Autowired
-	private CategoryController categoryController;
-
-	@Test
-	void contextLoads() {
-	}
-
-	@Test
-	private void validaPaymentCriado(){
-
-	}
 
 }
