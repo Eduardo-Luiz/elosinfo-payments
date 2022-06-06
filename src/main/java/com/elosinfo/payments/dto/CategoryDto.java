@@ -1,22 +1,13 @@
 package com.elosinfo.payments.dto;
 
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.Getter;
 
-import javax.persistence.Column;
-import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.NotNull;
-import java.time.LocalDateTime;
+import java.util.List;
 
-@Data
-@NoArgsConstructor
+@Getter
 public class CategoryDto {
+
     private Long id;
-    @NotBlank(message = "Description is required")
-    private String description;
-    private Boolean mainCategory;
-    private Long parentId;
-    private LocalDateTime createdAt;
-    private LocalDateTime updatedAt;
-    private Boolean active;
+    private String name;
+    private List<CategoryDto> sub;
 }

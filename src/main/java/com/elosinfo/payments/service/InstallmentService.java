@@ -9,21 +9,21 @@ public class InstallmentService implements IInstallmentService {
 
     @Override
     public void validate(Long id, PaymentDto paymentDto) {
-        //TODO validate
+        //TODO implementar validação da criação de parcelas de um lançamento
     }
 
     @Override
     public void place(PaymentEntity paymentEntity) {
         this.build();
-        //TODO save
+        //TODO implementar a criação dos lançamentos de um pagamento
     }
 
     @Override
     public void deleteByPaymentId(Long idPayment) {
-        //TODO delete
+        //TODO deletar parcelas de um pagamento
     }
 
     private void build(){
-        //TODO implements
+        //TODO implements InstallmentService.build()
     }
 }

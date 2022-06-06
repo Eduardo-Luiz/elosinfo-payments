@@ -1,0 +1,6 @@
+
+u	java:S116"`Rename this field "DATA_ENTRY_VALIDATION" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(•ÛÄ
+7
+java:S1170"!Make this final field static too.(•ÛÄ
+M
+java:S1611"2Remove the parentheses around the "erro" parameter(­Óæ™ıÿÿÿÿ

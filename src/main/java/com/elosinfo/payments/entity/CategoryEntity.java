@@ -20,11 +20,8 @@ public class CategoryEntity {
     @Column(name = "id")
     private Long id;
 
-    @Column(name = "identification")
-    private String description;
-
-    @Column(name = "main_category")
-    private Boolean mainCategory;
+    @Column(name = "name")
+    private String name;
 
     @Column(name = "parent_id")
     private Long parentId;

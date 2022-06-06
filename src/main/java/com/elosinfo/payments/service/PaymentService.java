@@ -7,7 +7,6 @@ import com.elosinfo.payments.repository.IPaymentRepository;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cache.annotation.CachePut;
-import org.springframework.cache.annotation.Cacheable;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 
@@ -112,6 +111,8 @@ public class PaymentService implements IPaymentService {
      */
     private void validatePayment(Long id, PaymentDto paymentDto){
         //TODO implement validation to save the payment
+
+        //Não pode ter registro com mesma identificação, valor, data e tipo
     }
 
     @Override
@@ -161,5 +162,10 @@ public class PaymentService implements IPaymentService {
                     "Error categorizing payment_id " + id + " with message: " + e.getMessage(),
                     HttpStatus.INTERNAL_SERVER_ERROR);
         }
+    }
+
+    @Override
+    public List<PaymentEntity> getNotCategorized() {
+        return this.repository.getNotCategorized();
     }
 }

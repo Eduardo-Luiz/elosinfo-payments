@@ -7,15 +7,17 @@ import java.util.List;
 import java.util.Optional;
 
 public interface IPaymentService {
-    public List<PaymentEntity> getAll();
+    List<PaymentEntity> getAll();
 
-    public Optional<PaymentEntity> getById(Long id);
+    Optional<PaymentEntity> getById(Long id);
 
-    public void placePayment(PaymentDto paymentDto);
+    void placePayment(PaymentDto paymentDto);
 
-    public void updatePayment(Long id, PaymentDto customerDto);
+    void updatePayment(Long id, PaymentDto customerDto);
 
-    public void deletePayment(Long id);
+    void deletePayment(Long id);
 
     void categorize(Long id, Long idCategory);
+
+    List<PaymentEntity> getNotCategorized();
 }

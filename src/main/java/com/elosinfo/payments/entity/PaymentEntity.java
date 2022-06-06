@@ -6,14 +6,15 @@ import lombok.NoArgsConstructor;
 import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
+import java.io.Serializable;
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
 
-@Entity
+@Entity(name = "payment")
 @Table(name = "payment")
 @Data //coloca todos os getters e setters
 @NoArgsConstructor //criar construtor default
-public class PaymentEntity {
+public class PaymentEntity implements Serializable {
 
     @JsonInclude(JsonInclude.Include.NON_NULL)
     @Id

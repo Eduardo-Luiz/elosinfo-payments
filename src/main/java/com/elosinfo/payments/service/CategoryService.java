@@ -1,8 +1,8 @@
 package com.elosinfo.payments.service;
 
-import com.elosinfo.payments.dto.CategoryDto;
+import com.elosinfo.payments.dto.CategoriesDto;
+import com.elosinfo.payments.dto.CategoryInitDto;
 import com.elosinfo.payments.entity.CategoryEntity;
-import com.elosinfo.payments.entity.PaymentEntity;
 import com.elosinfo.payments.exception.PaymentException;
 import com.elosinfo.payments.repository.ICategoryRepository;
 import org.modelmapper.ModelMapper;
@@ -34,10 +34,16 @@ public class CategoryService implements ICategoryService{
     }
 
     @Override
-    public void save(CategoryDto categoryDto) {
-        CategoryEntity categoryEntity = new ModelMapper().map(categoryDto, CategoryEntity.class);
+    public CategoriesDto getTree() {
+        //TODO implementar CategoryService getTree
+        return null;
+    }
+
+    @Override
+    public void save(CategoryInitDto categoryInitDto) {
+        CategoryEntity categoryEntity = new ModelMapper().map(categoryInitDto, CategoryEntity.class);
         categoryEntity.setCreatedAt(LocalDateTime.now());
         this.categoryRepository.save(categoryEntity);
-        categoryDto.setId(categoryEntity.getId());
+        categoryInitDto.setId(categoryEntity.getId());
     }
 }

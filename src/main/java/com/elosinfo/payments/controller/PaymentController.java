@@ -26,6 +26,7 @@ public class PaymentController {
      */
     @GetMapping
     public ResponseEntity<List<PaymentEntity>> getAll(){
+        //TODO Determinar filtros e aplicar na busca dos lançamentos
         return ResponseEntity.status(HttpStatus.OK).body(this.paymentService.getAll());
     }
 
@@ -36,6 +37,7 @@ public class PaymentController {
      */
     @GetMapping("/{id}")
     public ResponseEntity<PaymentEntity> getById(@PathVariable Long id){
+        //TODO Criar DTO como saída, não utilizando a model
         Optional<PaymentEntity> entity = this.paymentService.getById(id);
 
         return entity
@@ -45,7 +47,7 @@ public class PaymentController {
 
     @GetMapping("/dash-view")
     public ResponseEntity<?> getDashView(){
-        //TODO
+        //TODO Definir contrato do que será exibido como saída no dash e implementar a busca
         return ResponseEntity.status(HttpStatus.OK).body(true);
     }
 
@@ -87,6 +89,11 @@ public class PaymentController {
         this.paymentService.categorize(id, idCategory);
 
         return ResponseEntity.status(HttpStatus.OK).body(true);
+    }
+
+    @GetMapping("/not-categorized")
+    public ResponseEntity<List<PaymentEntity>> getNotCategorized(){
+        return ResponseEntity.status(HttpStatus.OK).body(this.paymentService.getNotCategorized());
     }
 
 
